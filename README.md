@@ -24,7 +24,7 @@ If you have a Redis URL, add that:
 
 	REDIS_URL: redis://username:password@your.redis.server:12345
 
-If using enivronment variables, these are the same, but capitalised:
+If using enivronment variables, these are the same:
 	
 	BERGCLOUD_CONSUMER_TOKEN
 	BERGCLOUD_CONSUMER_TOKEN_SECRET

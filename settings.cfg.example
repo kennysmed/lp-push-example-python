@@ -1,0 +1,7 @@
+DEBUG = True
+BERGCLOUD_CONSUMER_TOKEN = 'yourConsumerToken'
+BERGCLOUD_CONSUMER_TOKEN_SECRET = 'yourConsumerTokenSecret'
+BERGCLOUD_ACCESS_TOKEN = 'yourAccessToken'
+BERGCLOUD_ACCESS_TOKEN_SECRET = 'yourAccessTokenSecret'
+REDIS_URL: redis://username:password@your.redis.server:12345
+

@@ -1,0 +1,55 @@
+{
+    "owner_email": "publishers@bergcloud.com",
+    "publication_api_version": "1.0",
+    "delivery_type": "push",
+    "name": "Push example",
+    "description": "Example push publication for Little Printer",
+    "delivered_on": "when an event happens",
+    "send_timezone_info": true,
+    "send_delivery_count": false,
+    "external_configuration": false,
+    "config": {
+      "fields": [
+          {
+              "type": "text",
+              "name": "name",
+              "label": "Enter your name"
+          },
+          {
+              "type": "select",
+              "name": "lang",
+              "label": "Select your greeting language",
+              "options": [
+                  [
+                      "English",
+                      "english"
+                  ],
+                  [
+                      "French",
+                      "french"
+                  ],
+                  [
+                      "German",
+                      "german"
+                  ],
+                  [
+                      "Spanish",
+                      "spanish"
+                  ],
+                  [
+                      "Portuguese",
+                      "portuguese"
+                  ],
+                  [
+                      "Italian",
+                      "italian"
+                  ],
+                  [
+                      "Swedish",
+                      "swedish"
+                  ]
+              ]
+          }
+      ]
+    }
+}

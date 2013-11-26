@@ -53,7 +53,7 @@ def access_token():
             secret=app.config['BERGCLOUD_ACCESS_TOKEN_SECRET'])
 
 def client():
-    return oauth.Client(consumer, access_token)
+    return oauth.Client(consumer(), access_token())
 
 
 def db():

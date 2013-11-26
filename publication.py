@@ -57,8 +57,11 @@ def client():
 
 
 def db():
-    url = urlparse.urlparse(app.config['REDIS_URL'])
-    return redis.Redis(host=url.hostname, port=url.port, password=url.password)
+    if 'REDIS_URL' in app.config and app.config['REDIS_URL']:
+        url = urlparse.urlparse(app.config['REDIS_URL'])
+        return redis.Redis(host=url.hostname, port=url.port, password=url.password)
+    else:
+        return redis.Redis()
 
 
 @app.route('/')

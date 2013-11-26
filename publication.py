@@ -218,7 +218,7 @@ def push_post():
     # Show the same form again, with a message to confirm this worked.
     return render_template('push.html',
                             pushed=True,
-                            subscribed_count=subscribed_cound,
+                            subscribed_count=subscribed_count,
                             unsubscribed_count=unsubscribed_count)
 
 

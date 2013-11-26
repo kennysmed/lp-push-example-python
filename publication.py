@@ -201,7 +201,7 @@ def push_post():
                         config['endpoint'],
                         method='POST',
                         body=content,
-                        headers={'Content-type': 'text/html; charset=utf-8'})
+                        headers={'Content-Type': 'text/html; charset=utf-8'})
 
         if response.status == '410':
             # By sending a 410 status code, BERG Cloud has informed us this

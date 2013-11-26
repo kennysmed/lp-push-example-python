@@ -189,7 +189,7 @@ def push_post():
     unsubscribed_count = 0
     for subscription_id, config in db().hgetall('push_example:subscriptions').iteritems():
         # config contains the subscriber's language, name and endpoint.
-        config = json.load(config)
+        config = json.loads(config)
 
         # Get a random greeting in this subscriber's chosen language.
         greeting = choice(app.config['GREETINGS'][ config['lang'] ])

@@ -1,6 +1,9 @@
 # Little Printer Push API example (Python)
 
-This is an example publication written in Python using the [Flask framework](http://flask.pocoo.org/) framework.
+This is an example publication written in Python using the [Flask framework](http://flask.pocoo.org/) framework. The same example can also be seen in:
+
+* [PHP](https://github.com/bergcloud/lp-push-example-php)
+* [Ruby](https://github.com/bergcloud/lp-publication-push-example)
 
 This example expands on the Hello World example, and demonstrates how to use the Push API to send messages directly to subscribed Little Printers.
 

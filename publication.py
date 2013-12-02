@@ -42,6 +42,20 @@ except IOError as e:
     app.config['REDIS_URL'] = os.environ.get('REDIS_URL', False)
 
 
+# Returns the Redis object (either new or existing).
+def db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        if 'REDIS_URL' in app.config and app.config['REDIS_URL']:
+            # If there's a REDIS_URL config variable, connect with that.
+            url = urlparse.urlparse(app.config['REDIS_URL'])
+            db = g._database = redis.Redis(host=url.hostname, port=url.port, password=url.password)
+        else:
+            # Otherwise, use local Redis.
+            db = g._database = redis.Redis()
+    return db
+
+
 # The BERG Cloud OAuth consumer object.
 def consumer():
     consumer = getattr(g, '_oauth_consumer', None)
@@ -72,20 +86,6 @@ def client():
     return client
 
 
-# Returns the Redis object (either new or existing).
-def db():
-    db = getattr(g, '_database', None)
-    if db is None:
-        if 'REDIS_URL' in app.config and app.config['REDIS_URL']:
-            # If there's a REDIS_URL config variable, connect with that.
-            url = urlparse.urlparse(app.config['REDIS_URL'])
-            db = g._database = redis.Redis(host=url.hostname, port=url.port, password=url.password)
-        else:
-            # Otherwise, use local Redis.
-            db = g._database = redis.Redis()
-    return db
-
-
 @app.route('/')
 def root():
     return make_response('A Little Printer publication.')
@@ -97,13 +97,13 @@ def static_from_root():
 
 
 # == POST parameters:
-# :config
-#   params[:config] contains a JSON array of responses to the options defined
+# 'config'
+#   request.form['config'] contains a JSON array of responses to the options defined
 #   by the fields object in meta.json. In this case, something like:
-#   params[:config] = ["name":"SomeName", "lang":"SomeLanguage"]
-# :endpoint
+#   request.form['config'] = {"name":"SomeName", "lang":"SomeLanguage"}
+# 'endpoint'
 #   the URL to POST content to be printed out by Push.
-# :subscription_id
+# 'subscription_id'
 #   a string used to identify the subscriber and their Little Printer.
 #
 # Most of this is identical to a non-Push publication.

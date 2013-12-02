@@ -9,7 +9,7 @@ This example expands on the Hello World example, and demonstrates how to use the
 
 This example requires a Redis server running in order to store the data about subscriptions. If no URL is supplied, then it will use a local server with no authentication.
 
-You will need to get the OAuth authentication tokens from the page for your newly-created Little Printer publication (in [Your publications](http://remote.bergcloud.com/developers/publications/)).  
+You will need to get the BERG Cloud OAuth authentication tokens from the page for your newly-created Little Printer publication (in [Your publications](http://remote.bergcloud.com/developers/publications/)).  
 
 Configuration details can be set either in a `settings.cfg` file (copy `settings.cfg.example`) or in environment variables.
 

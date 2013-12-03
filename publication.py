@@ -49,7 +49,8 @@ def db():
         if 'REDIS_URL' in app.config and app.config['REDIS_URL']:
             # If there's a REDIS_URL config variable, connect with that.
             url = urlparse.urlparse(app.config['REDIS_URL'])
-            db = g._database = redis.Redis(host=url.hostname, port=url.port, password=url.password)
+            db = g._database = redis.Redis(
+                    host=url.hostname, port=url.port, password=url.password)
         else:
             # Otherwise, use local Redis.
             db = g._database = redis.Redis()
@@ -209,6 +210,7 @@ def push_get():
 def push_post():
     subscribed_count = 0
     unsubscribed_count = 0
+
     for subscription_id, config in db().hgetall('push_example:subscriptions').iteritems():
         # config contains the subscriber's language, name and endpoint.
         config = json.loads(config)
